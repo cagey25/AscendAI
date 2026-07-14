@@ -1,0 +1,246 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0a0e0a;
+  font-family: -apple-system, sans-serif;
+}
+
+.app-shell {
+  max-width: 420px;
+  margin: 0 auto;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 0%, #0f1f10 0%, #0a0e0a 60%);
+  color: #e8f0e8;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  padding-bottom: 90px; /* leaves room for nav bar */
+}
+
+/* ===== NAV BAR ===== */
+.navbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: #0d130dcc;
+  border-top: 1px solid #223022;
+  padding: 12px 0;
+  backdrop-filter: blur(6px);
+}
+
+.nav-item {
+  color: #6a7a6a;
+  font-size: 11px;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+}
+.nav-item.active {
+  color: #a8ffb0;
+}
+
+/* ===== BRIEFING / MISSION LETTER ===== */
+.briefing-letter {
+  background: #10160fcc;
+  border: 1px solid #2a3a2a;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 140px;
+  color: #c8f0c8;
+  white-space: pre-wrap;
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  background: #a8ffb0;
+  animation: blink 0.8s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.opponent-quote {
+  text-align: center;
+  margin-top: 40px;
+}
+.opponent-quote h2 {
+  color: #a8ffb0;
+  font-size: 26px;
+  margin: 0;
+}
+.opponent-quote p {
+  color: #8a9a8a;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* ===== MISSIONS ===== */
+.mission {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #12181280;
+  border: 1px solid #2a3a2a;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.mission.done {
+  border-color: #a8ffb0;
+}
+.mission.done .mission-name {
+  color: #8a9a8a;
+  text-decoration: line-through;
+}
+.mission-name {
+  font-weight: 600;
+  font-size: 15px;
+}
+.mission-xp {
+  font-size: 12px;
+  color: #8a9a8a;
+}
+.check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #3a4a3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.mission.done .check {
+  background: #a8ffb0;
+  border-color: #a8ffb0;
+  color: #0a0e0a;
+}
+
+/* ===== AI COACH ===== */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bubble {
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  max-width: 80%;
+  line-height: 1.5;
+}
+.bubble.bot {
+  background: #16201680;
+  border: 1px solid #2a3a2a;
+  align-self: flex-start;
+}
+.bubble.user {
+  background: #a8ffb0;
+  color: #0a0e0a;
+  align-self: flex-end;
+  font-weight: 600;
+}
+
+.chat-input-row {
+  position: absolute;
+  bottom: 70px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  gap: 8px;
+}
+.chat-input {
+  flex: 1;
+  background: #12181280;
+  border: 1px solid #2a3a2a;
+  border-radius: 20px;
+  padding: 10px 16px;
+  color: white;
+}
+.send-btn {
+  background: #a8ffb0;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* ===== JOURNAL ===== */
+.journal-entry {
+  width: 100%;
+  min-height: 200px;
+  background: #12181280;
+  border: 1px solid #2a3a2a;
+  border-radius: 10px;
+  color: white;
+  padding: 16px;
+  font-size: 14px;
+  resize: vertical;
+}
+.save-btn {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid #a8ffb0;
+  color: #a8ffb0;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.past-entry {
+  background: #10160fcc;
+  border-left: 2px solid #a8ffb0;
+  padding: 10px 14px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #b8c8b8;
+}
+
+/* ===== MEDITATION ===== */
+.meditation-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid #a8ffb0;
+  margin: 60px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #a8ffb0;
+  box-shadow: 0 0 40px rgba(168, 255, 176, 0.2);
+  transition: transform 4s ease-in-out;
+}
+.meditation-circle.breathing {
+  transform: scale(1.2);
+}
+
+h1.screen-title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a8ffb0;
+  margin-bottom: 16px;
+}
